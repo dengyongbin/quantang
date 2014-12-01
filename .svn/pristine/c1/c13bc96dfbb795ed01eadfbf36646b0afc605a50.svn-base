@@ -1,0 +1,16 @@
+package com.quantang.service;
+
+import java.util.List;
+import java.util.Map;
+
+public interface ChartDataService {
+	List<Map<String, Object>> getNYMEXBHData(Integer i, String startdate, String enddate);
+
+	List<Map<String, Object>> getNYMEXCCData(String date);
+
+	List<Map<String, Object>> getNYMEXBZData(String date);
+
+	List<Map<String, Object>> getWTIData();
+
+	List<Map<String, Object>> getWTIDataTime(Integer i);
+}

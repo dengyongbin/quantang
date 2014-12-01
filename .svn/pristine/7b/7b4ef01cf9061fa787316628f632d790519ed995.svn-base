@@ -1,0 +1,47 @@
+package com.quantang.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.quantang.dao.ChartDataDao;
+import com.quantang.service.ChartDataService;
+
+@Service
+public class ChartDataServiceImpl implements ChartDataService {
+	@Autowired
+	private ChartDataDao cddao;
+
+	@Override
+	public List<Map<String, Object>> getNYMEXBHData(Integer i, String startdate, String enddate) {
+		// TODO Auto-generated method stub
+		return cddao.getNYMEXBHData(i, startdate, enddate);
+	}
+
+	@Override
+	public List<Map<String, Object>> getNYMEXCCData(String date) {
+		// TODO Auto-generated method stub
+		return cddao.getNYMEXCCData(date);
+	}
+
+	@Override
+	public List<Map<String, Object>> getNYMEXBZData(String date) {
+		// TODO Auto-generated method stub
+		return cddao.getNYMEXBZData(date);
+	}
+
+	@Override
+	public List<Map<String, Object>> getWTIData() {
+		// TODO Auto-generated method stub
+		return cddao.getWTIData();
+	}
+
+	@Override
+	public List<Map<String, Object>> getWTIDataTime(Integer i) {
+		// TODO Auto-generated method stub
+		return cddao.getWTIDataTime(i);
+	}
+
+}

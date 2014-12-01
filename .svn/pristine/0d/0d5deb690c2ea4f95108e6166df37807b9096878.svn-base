@@ -1,0 +1,6 @@
+upload.type=image,flash,media,file
+editer.image=gif,jpg,jpeg,png,bmp
+editer.flash=swf,flv
+editer.media=swf,flv,mp3,wav,wma,wmv,mid,avi,mpg,asf,rm,rmvb
+editer.file=doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2
+editer.maxsize=1000000

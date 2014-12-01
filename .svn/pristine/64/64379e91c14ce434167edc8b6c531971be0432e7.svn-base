@@ -1,0 +1,48 @@
+package com.quantang.web.index;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class DynamicController {
+	
+	@RequestMapping("/aboutus.htm")
+	public String aboutus() {
+		return "index/aboutus";
+	}
+	
+	@RequestMapping("/contact.htm")
+	public String contactus() {
+		return "index/contact";
+	}
+	
+	@RequestMapping("/product.htm")
+	public String product() {
+		return "index/product";
+	}
+	
+	@RequestMapping("/feature.htm")
+	public String feature() {
+		return "index/feature";
+	}
+	
+	@RequestMapping("/jyxz.htm")
+	public String jyxz() {
+		return "index/jyxz";
+	}
+	
+	@RequestMapping("/qybz.htm")
+	public String qybz() {
+		return "index/qybz";
+	}
+	
+	@RequestMapping("/rjxz.htm")
+	public String rjxz() {
+		return "index/rjxz";
+	}
+	
+	@RequestMapping("/question.htm")
+	public String question() {
+		return "index/question";
+	}
+}

@@ -1,0 +1,2 @@
+//首页推荐图片文章特效
+$(document).ready(function(){$("#article").mouseover(function(){$("#articlesum").slideDown()});$("#article").mouseout(function(){$("#articlesum").slideUp("slow")});$("#articlesum").mouseover(function(){$("#articlesum").stop()});$("#prevview").click(function(){$(".item active").slideToggle(2000)});downChange(1)});function downChange(index){if(index>1){if($("#down2").css('display')=='none'){$("#down1").hide();$("#down2").show()}else{$("#down1").show();$("#down2").hide()}}setTimeout("downChange(2)",10000)}

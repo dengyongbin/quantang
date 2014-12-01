@@ -1,0 +1,342 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>产品介绍 | 全唐贵金属</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="keywords" content="贵金属,全唐贵金属,钯金、铂金、镍投资,贵金属投资,投资理财" />
+<meta
+	content="我们强调“尊重客户，礼待客户”，让客户满意是服务的根本原则。全唐贵金属的每一位客户、每一份开户合约、每一个咨询电话，都将是规范、专业和客户利益至上原则的体现。 在对待客户的方式上，“客户就是上帝”，以客户为导向，不断满足客户的需求并持续超越客户的期望，是我们全唐人一致的追求。"
+	name="description">
+
+
+<!-- CSS Styles  -->
+<link href="${base}/index/css/bootstrap.css" rel="stylesheet">
+<link href="${base}/index/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="${base}/index/css/font-awesome.min.css" rel="stylesheet">
+<link href="${base}/index/css/colors.css" rel="stylesheet">
+<link href="${base}/index/css/style.css" rel="stylesheet">
+<%-- <link rel="stylesheet" href="${base}/index/css/product.css"> --%>
+<!-- Favicon and touch icons  -->
+<link
+	href="${base}/index/${base}/index/images/apple-touch-icon-144-precomposed.png"
+	rel="apple-touch-icon-precomposed" sizes="144x144">
+<link
+	href="${base}/index/${base}/index/images/apple-touch-icon-114-precomposed.png"
+	rel="apple-touch-icon-precomposed" sizes="114x114">
+<link
+	href="${base}/index/${base}/index/images/apple-touch-icon-72-precomposed.png"
+	rel="apple-touch-icon-precomposed" sizes="72x72">
+<link
+	href="${base}/index/${base}/index/images/apple-touch-icon-57-precomposed.png"
+	rel="apple-touch-icon-precomposed">
+<link href="${base}/index/${base}/index/images/favicon.png"
+	rel="shortcut icon">
+
+<!-- Javascript  -->
+<script src="${base}/index/js/jquery.js"></script>
+<script src="${base}/index/js/bootstrap.min.js"></script>
+<script src="${base}/index/js/jquery.placeholder.js"></script>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      	<script src="${base}/index/js/html5shiv.js"></script>
+    	<![endif]-->
+<script src="${base}/index/js/custom.js"></script>
+
+<!-- <link
+	href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic'
+	rel='stylesheet' type='text/css'> -->
+<link href="${base}/index/css/fonticon.css" rel="stylesheet">
+
+<!-- Theme panel  -->
+<script src="${base}/index/js/theme-panel/theme-panel.js"></script>
+<link href="${base}/index/css/theme-panel.css" rel="stylesheet">
+<style type="text/css">
+#optionul li a {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+#optionul li a:hover {
+	color: #123123;
+}
+
+#optionul>li.active a {
+	color: #123123;
+}
+
+#optionul>li.active a {
+	color: #123123;
+}
+
+#optionul{
+	bottom: -0px;
+	z-index: 12;
+	position: relative;
+	background:none;
+}
+
+#optionul li{
+	text-align: center;
+	background: #9E3628;
+	border-top: 1px solid #9E3628;
+	border-left: 1px solid #9E3628;
+}
+</style>
+</head>
+<body id="red">
+
+	<header>
+		<%@include file="header.jsp"%>
+	</header>
+	<!-- end header -->
+
+	<div class="container page-content">
+		<div class="row">
+			<div class="span8">
+				<!-- <div class="jybigktitle6 hd jysyhqtitle02">
+					<ul>
+						<li class="on"><span class="first">现货白银</span></li>
+						<li class=""><span>黄金T+D</span></li>
+						<li class=""><span>纸黄金</span></li>
+					</ul>
+				</div> -->
+				<ul id="optionul" class="nav nav-tabs">
+					<li class="active"><a href="#tab1" data-toggle="tab">产品概括</a></li>
+					<li class=""><a href="#tab2" data-toggle="tab">产品特点</a></li>
+					<li class=""><a href="#tab3" data-toggle="tab">产品细则</a></li>
+					<li class=""><a href="#tab4" data-toggle="tab">盈亏计算</a></li>
+					<li class=""><a href="#tab5" data-toggle="tab">权益保障</a></li>
+				</ul>
+				<div class="box-container padding30" style="border: 1px solid #9E3628;">
+					<div class="tab-content">
+						<div id="tab1" class="tab-pane active">
+							<!-- 	<h2 class="page-title">产品概括</h2>
+							<hr> -->
+							<p>我们的产品交易平台是国内唯一与国际贵金属市场合法接轨的贵金属投资平台。贵金属在人类数千年的文明史中一直是货币和财富的代名词，商品贸易的媒介，以及衡量价格的尺度。随着贵金属资源的大量开采与存世量的急剧减少，贵金属已经超越了传统保值品的范畴，也已经成为全球各国战略储备的资源。纵观全球各大主权资金，无不将贵金属列为投资组合中必要的配置。当下，在维护国际金融秩序稳定与和谐发展的过程中，贵金属履行“最后卫兵”这一重要职责。
+							</p>
+							<div class="pull-left" style="padding-bottom: 40px;">
+								<div class="product-title">
+									<span>银</span>
+								</div>
+							</div>
+							<div class="product-content" style="padding-bottom: 15px;">
+								<p style="padding-top: 20px; text-indent: 0;">（简称Ag）是一种应用历史悠久的贵金属，至今已有4000多年的历史。由于银独有的优良特性，人们曾赋予它货币和装饰双重价值。银与金一样，也是金属中的"贵族"，被称为"贵金属"，过去只被用作货币与制作装饰品。现在，银在工业上有了三项重要的用途：电镀、制镜与摄影。</p>
+							</div>
+							<div class="pull-left" style="padding-bottom: 30px;">
+								<div class="product-title">
+									<span>铂金</span>
+								</div>
+							</div>
+							<div class="product-content" style="padding-bottom: 15px;">
+								<p style="padding-top: 20px; text-indent: 0;">（简称Pt），是一种天然的白色贵金属。在国际和国内的金融市场，铂金的金融属性越来越显现其巨大的潜力，国务院下发规范黄金交易市场的相关文件后，许多交易平台纷纷放弃黄金转战铂金市场。在自然界铂金的储量比黄金稀少，全世界铂金的年产量，只有黄金年产量的5%。</p>
+							</div>
+							<div class="pull-left" style="padding-bottom: 20px;">
+								<div class="product-title">
+									<span>钯金</span>
+								</div>
+							</div>
+							<div class="product-content" style="padding-bottom: 15px;">
+								<p style="padding-top: 20px; text-indent: 0;">（简称Pd）是世界上稀有的贵金属之一，与铂金、黄金、银同为国际贵金属现货、期货的交易品种。它是一种不可再生的稀缺资源，随着不断的开采和市场需求的提高，其未来价值还将逐渐体现出来。</p>
+							</div>
+							<div class="pull-left" style="padding-bottom: 30px;">
+								<div class="product-title">
+									<span>镍</span>
+								</div>
+							</div>
+							<div class="product-content">
+								<p style="padding-top: 20px; text-indent: 0;">一种金属元素，可用来制造货币等，镀在其他金属上可以防止生锈。</p>
+							</div>
+						</div>
+						<!-- .row -->
+
+
+						<div id="tab2" class="tab-pane">
+							<p>我们的产品交易平台是国内唯一与国际贵金属市场合法接轨的贵金属投资平台。贵金属在人类数千年的文明史中一直是货币和财富的代名词，商品贸易的媒介，以及衡量价格的尺度。随着贵金属资源的大量开采与存世量的急剧减少，贵金属已经超越了传统保值品的范畴，也已经成为全球各国战略储备的资源。纵观全球各大主权资金，无不将贵金属列为投资组合中必要的配置。当下，在维护国际金融秩序稳定与和谐发展的过程中，贵金属履行“最后卫兵”这一重要职责。
+							</p>
+							<hr>
+							<h2 class="page-title">T+0双向交易机制</h2>
+							<p>无论价格怎样变化，可以先买入再卖出（做多），也可以先卖出再买入（做空），当日即可以数次进出，增加了盈利的机会。</p>
+							<hr>
+							<h2 class="page-title">银行三方存管，资金充分安全</h2>
+							<p>投资者投资账户的资金由工商银行、建设银行、交通银行、光大银行、中心银行、农业银行等进行第三方存管，充分保证了资金的安全，存取款自有、方便。</p>
+							<hr>
+							<h2 class="page-title">交易迅速 即时成交</h2>
+							<p>在通常的市况下，所有订单无需等待，都可以在指定的价位或者指定的方位内即时成交。</p>
+							<hr>
+							<h2 class="page-title">接轨国际投资</h2>
+							<p>国际先进的交易机制，24小时连续交易，价格与国际市场同步；影响贵金属价格的因素透明；投资者的每一笔委托都是经由交易所交易系统执行。</p>
+							<hr>
+							<h2 class="page-title">无印花税 手续费低</h2>
+							<p>贵金属交易无印花税，每次交易仅收取成交金额万分之八的手续费，有效降低了投资者的交易成本。</p>
+							<hr>
+							<h2 class="page-title">12.5倍，全国杠杆比率最高的投资品种</h2>
+							<p>最低只需8%的交易保证金，杠杆比率为12.5倍，若白银价格同方向变化1%，即可获利10%以上，让投资者可以充分提升资金利用效率。</p>
+							<hr>
+
+							<!-- .row -->
+						</div>
+
+						<div id="tab3" class="tab-pane">
+							<table class="data_table" style="clear: both" width="100%">
+								<tbody>
+									<tr>
+										<th width="16%">交易品种</th>
+										<th width="25%">现货白银</th>
+										<th width="26%">现货铂金</th>
+										<th width="33%">现货钯金</th>
+									</tr>
+									<tr>
+										<td><strong>最大持仓限额</strong></td>
+										<td>3000千克(200手)</td>
+										<td>5000克(5手)</td>
+										<td>5000克(5手)</td>
+									</tr>
+									<tr>
+										<td><b>当前延期费率</b></td>
+										<td colspan="5">成交金额的0.2%/日</td>
+									</tr>
+									<tr>
+										<td><strong>强行平仓</strong></td>
+										<td colspan="5">风险率=帐户净值/持仓占用交易保证金,当风险率<50%时,剩余持仓全部强行平仓</td>
+									</tr>
+									<tr>
+										<td><b>交割实物标准</b></td>
+										<td>交易所认定的投资银锭,成色AG9999,规格15千克/钉,符合GB/T4135-2002国家标准</td>
+										<td>交易所认定的铂金粉,成色PT9995,规格1000克每单位,符合GB/T4135-2002国家标准</td>
+										<td>交易所认定的钯金粉,成色PD9995,规格1000克每单位,符合GB/T1420-2004国家标准</td>
+									</tr>
+									<tr>
+										<td><b>提货费</b></td>
+										<td>不高于现价的20%</td>
+										<td>不高于现价的30%</td>
+										<td>不高于现价的15%</td>
+									</tr>
+									<tr>
+										<td><b>报价基准</b></td>
+										<td colspan="5">以伦敦贵金属现货市场为基准,综合国内贵金属市场价格及中国人民银行人民币兑美元基准汇率</td>
+									</tr>
+									<tr>
+										<td><b>报价单位</b></td>
+										<td>元(RMB)/千克(kg)</td>
+										<td>元(RMB)/克(g)</td>
+										<td>元(RMB)/克(g)</td>
+									</tr>
+									<tr>
+										<td><b>最小变动价位</b></td>
+										<td>1元/千克</td>
+										<td>0.01元/克</td>
+										<td>0.01元/克</td>
+									</tr>
+									<tr>
+										<td><b>买卖价差</b></td>
+										<td>10元/千克</td>
+										<td>8%/克</td>
+										<td>18%/克</td>
+									</tr>
+									<tr>
+										<td><b>每日价格波动限制</b></td>
+										<td colspan="5">无</td>
+									</tr>
+									<tr>
+										<td><b>交易单位</b></td>
+										<td>15千克/手,整数手,最小1手</td>
+										<td>1000克/手,整数手,最小1手</td>
+										<td>1000克/手,整数手,最小1手</td>
+									</tr>
+									<tr>
+										<td><b>交易时间</b></td>
+										<td colspan="5">周一早8:00至周六早4:00(结算时间、国家法定节假日及国际市场休市除外)</td>
+									</tr>
+									<tr>
+										<td><b>结算休市时间</b></td>
+										<td colspan="5">交易日内,凌晨4:00至6:00</td>
+									</tr>
+									<tr>
+										<td><b>最低交易保证金</b></td>
+										<td colspan="5">成交金额的0.8%</td>
+									</tr>
+									<tr>
+										<td><b>交易手续费</b></td>
+										<td colspan="5">成交金额的0.8%</td>
+									</tr>
+									<tr>
+										<td><b>单笔最大交易限额</b></td>
+										<td>7500千克(50手)</td>
+										<td>5000克(5手)</td>
+										<td>5000克(5手)</td>
+									</tr>
+									<tr>
+										<td><b>最大持仓限额</b></td>
+										<td>3000千克(200手)</td>
+										<td>5000克(5手)</td>
+										<td>5000克(5手)</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- .row -->
+						</div>
+
+						<div id="tab4" class="tab-pane ">
+							<div>
+								<p class="clb">
+									<span class="fs12">盈亏值=（卖出价－买入价）×买入数量－延期费－手续费</span> <img
+										src="${base}/index/images/invest_22.jpg" class="mt mb clb"
+										height="240" width="702"> <img
+										src="${base}/index/images/invest_23.jpg" height="242"
+										width="702">
+								</p>
+							</div>
+						</div>
+
+						<div id="tab5" class="tab-pane ">
+							<div class="invest_box">
+								<ul>
+									<li><b class="b2">交易数据由第三方托管</b> <span><img alt=""
+											src="${base}/index/images/invest_29.jpg" height="59"
+											width="129"></span>
+										<p>
+											由天津国际经济金融仲裁中心发起设立的天津鼎信交易数据托管中心，以独立第三方身份在每个交易日结束后，抓取托管会员与客户的每日结算数据并自动生成账单
+											，加密后发送至托管中心客户专用账户，投资者可以从专用邮箱或账户中查询交易信息。一旦投资者在交易过程中产生纠纷，可调取相关信息并出具证明，作为仲裁的证据，以保护投资者的合法权益。<br>
+											<a target="_blank" href="http://www.dxdmc.com/#userconsent#"><span
+												style="color: #999933"><strong>天津鼎信交易数据托管中心</strong></span></a>
+										</p></li>
+									<li><b class="b3">交易所合规稽核</b> <span><img alt=""
+											src="${base}/index/images/invest_30.jpg" height="57"
+											width="129"></span>
+										<p>
+											天津贵金属交易所设立专门的合规稽核部，由天津市监管部门监管，以国家法规、交易所规章制度为依据，对会员单位的经营活动进行监督,规范经营行为,防范经营风险,保证交易市场健康发展。<br>
+											<span
+												style="border-bottom: medium none; border-left: medium none; background: none transparent scroll repeat 0% 0%; border-top: medium none; border-right: medium none">天津贵金属交易所<br>
+												合规稽核部联系电话<br> （86）22—58678164
+											</span>
+										</p></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span4">
+				<%@include file="right.jsp"%>
+			</div>
+		</div>
+		<!-- .span8 -->
+
+		<!-- .span4 -->
+	</div>
+	<!-- .row -->
+	<!-- .container -->
+
+
+	<!-- begin footer -->
+	<footer>
+		<%@include file="footer.jsp"%>
+	</footer>
+
+	<!-- end footer -->
+</body>
+</html>

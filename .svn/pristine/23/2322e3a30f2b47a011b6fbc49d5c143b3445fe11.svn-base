@@ -1,0 +1,64 @@
+package com.quantang.jsoup;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.quantang.common.Checker;
+import com.quantang.common.Constant;
+import com.quantang.service.CaptureService;
+
+public class NobleMetalTimer extends java.util.TimerTask {
+
+	private static Logger logger = Logger.getLogger(NobleMetalTimer.class);
+	@Autowired
+	private CaptureService captureService;
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		String metalStr = "";
+		for (int i = 0; i < Constant.CAPTURE_CALSS.length; i++) {
+			metalStr += Constant.CAPTURE_PREFIX + Constant.CAPTURE_CALSS[i] + ",";
+		}
+		String backData = catchPage(Constant.CAPTURE_URLS.concat(metalStr));
+		if (Checker.isEmpty(backData)) {
+			logger.error("NobleMetal 抓取数据失败，服务器无数据返回!");
+		} else {
+			captureService.saveNobleMetalData(backData);
+		}
+	}
+
+	/**
+	 * @param targetUrl
+	 * @return String
+	 * @todo 页面捕捉
+	 */
+	private static String catchPage(String targetUrl) {
+		URL url;
+		URLConnection con;
+		StringBuffer sb = new StringBuffer("");
+		// 向targetUrl发送请求
+		try {
+			url = new URL(targetUrl);
+			con = url.openConnection();
+			// 读取响应
+			BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream(), "utf-8"));
+			String temp;
+			while ((temp = reader.readLine()) != null) {
+				sb.append(temp);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return sb.toString();
+	}
+
+}

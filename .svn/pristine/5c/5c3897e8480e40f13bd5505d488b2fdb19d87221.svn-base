@@ -1,0 +1,26 @@
+package com.quantang.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.quantang.dao.CaptureDao;
+import com.quantang.service.CaptureService;
+
+@Service
+public class CaptureServiceImpl implements CaptureService {
+	@Autowired
+	private CaptureDao capturedao;
+
+	@Override
+	public void saveCatureNYMEXData(String data) {
+		// TODO Auto-generated method stub
+		capturedao.saveCatureNYMEXData(data);
+	}
+
+	@Override
+	public void saveCatureWTIData(String data) {
+		// TODO Auto-generated method stub
+		capturedao.saveCatureWTIData(data);
+	}
+
+}

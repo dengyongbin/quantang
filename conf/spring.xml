@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<context:component-scan base-package="com.quantang.service" />
+	<context:component-scan base-package="com.quantang.dao" />
+
+	<bean id="PropertiesConfFile"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
+		p:url="${jdbc.url}" p:username="${jdbc.username}" p:password="${jdbc.password}" />
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="dataSource" />
+
+
+	<!-- <bean id="CFTCTimerTask" class="com.quantang.jsoup.CFTCTimerCapture"></bean> -->
+	<bean id="NobleMetalTask" class="com.quantang.jsoup.NobleMetalTimer"></bean>
+
+	<!-- <bean id="scheduleReportTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+		<property name="timerTask" ref="NobleMetalTask"></property>
+		启动后等待10秒
+		<property name="delay">
+			<value>10000</value>
+		</property>
+		循环周期18秒
+		<property name="period">
+			<value>30000</value>
+		</property>
+
+	</bean> -->
+	<!-- <bean id="scheduleReportTask2" class="org.springframework.scheduling.timer.ScheduledTimerTask"> 
+		<property name="timerTask" ref="CFTCTimerTask"></property> -->
+	<!-- 启动后等待10秒 -->
+	<!-- <property name="delay"> <value>10000</value> </property> -->
+	<!-- 循环周期180秒 -->
+	<!-- <property name="period"> <value>1800000</value> </property> -->
+	<!-- </bean> -->
+
+
+
+	<!-- <bean id="scheduleReportFactory" class="org.springframework.scheduling.timer.TimerFactoryBean">
+		<property name="scheduledTimerTasks">
+			<list>
+				<ref bean="scheduleReportTask" />
+				<ref bean="scheduleReportTask2" />
+			</list>
+		</property>
+	</bean> -->
+
+
+</beans>

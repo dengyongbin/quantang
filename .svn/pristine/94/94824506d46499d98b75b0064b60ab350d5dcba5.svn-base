@@ -1,0 +1,116 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>软件下载 | 全唐贵金属</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="keywords" content="贵金属,全唐贵金属,钯金、铂金、镍投资,贵金属投资,投资理财"/>
+<meta content="我们强调“尊重客户，礼待客户”，让客户满意是服务的根本原则。全唐贵金属的每一位客户、每一份开户合约、每一个咨询电话，都将是规范、专业和客户利益至上原则的体现。 在对待客户的方式上，“客户就是上帝”，以客户为导向，不断满足客户的需求并持续超越客户的期望，是我们全唐人一致的追求。" name="description">
+
+
+<!-- CSS Styles  -->
+<link href="${base}/index/css/bootstrap.css" rel="stylesheet">
+<link href="${base}/index/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="${base}/index/css/font-awesome.min.css" rel="stylesheet">
+<link href="${base}/index/css/colors.css" rel="stylesheet">
+<link href="${base}/index/css/style.css" rel="stylesheet">
+
+<!-- Javascript  -->
+<script src="${base}/index/js/jquery.min.js"></script>
+<script src="${base}/index/js/bootstrap.min.js"></script>
+<script src="${base}/index/js/jquery.placeholder.js"></script>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      	<script src="${base}/index/js/html5shiv.js"></script>
+    	<![endif]-->
+ <script src="${base}/index/js/custom.js"></script>
+<script src="${base}/index/js/common.js"></script>
+
+</head>
+<body id="red">
+
+	<!-- begin header -->
+	<header>
+		<%@include file="header.jsp"%>
+	</header>
+
+	<!-- end header -->
+	<div class="container page-content">
+		<div class="row">
+			<div class="span8">
+				<div class="row">
+						<div class="span8 box-container">
+							<div class="agent row">
+								<span class="span2 overlay"><img
+									alt="image" class="media-object"
+									style="width: 170px; height: 170px"
+									src="${base}/index/images/rjxz_14.jpg"
+									onmousemove="msover();"> 
+								</span>
+								<div class="span6">
+									<div class="agent-content">
+										<h3>交易客户端（适用于正式交易客户及模拟交易客户）</h3>
+										<p style="height: 60px">功能强大、操作简单的网上交易系统，能够提供实时行、网上交易及查询、报表功能，同时有与银行接口的实时转账功能，方便客户出人金，让您的投资交易得到可告保障，充分把握市场投资机会。</p>
+										<a class="btn pull-right" href="${base}/download/jyd.exe">点击下载</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="span8 box-container">
+							<div class="agent row">
+								<span class="span2 overlay"><img
+									alt="image" class="media-object"
+									style="width: 170px; height: 170px"
+									src="${base}/index/images/rjxz_14.jpg"
+									onmousemove="msover();">
+								</span>
+								<div class="span6">
+									<div class="agent-content">
+										<h3>行情分析系统（适用于所有客户）</h3>
+										<p style="height: 60px">本系统是集行情、分析与资讯为一体的超级信息平台、不仅包含天津贵金属交易所的天通金和现货白银，还包含国际贵金属、外汇、原油、全球指数等行情，详尽国内、国际财经信息、国际经济数据以及国际打行预测评级等信息。</p>
+										<a class="btn pull-right" href="${base}/download/hqfx.exe">点击下载</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="span8 box-container">
+							<div class="agent row">
+								<span class="span2 overlay"><img
+									alt="image" class="media-object"
+									style="width: 170px; height: 170px"
+									src="${base}/index/images/rjxz_14.jpg"
+									onmousemove="msover();">
+								</span>
+								<div class="span6">
+									<div class="agent-content">
+										<h3>微软Net Framewokrs2.0(适用于开户客户)</h3>
+										<p style="height: 60px">用户在安装过程中出现“系统检测到您没有安装Net Framewokrs2.0是否立即下载并安装”的情况，永不可以从这里下载。</p>
+										<a class="btn pull-right" href="${base}/download/Win7 3.5sp1.exe">win7 补丁下载</a>
+										<a class="btn pull-right" style="margin-right: 4px;" href="${base}/download/XP64 2.0sp2.exe">xp 64 补丁下载</a>
+										<a class="btn pull-right" style="margin-right: 4px;" href="${base}/download/XP32 2.0sp2.exe">xp 32 补丁下载</a>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+				<!-- .row -->
+			</div>
+			<!-- .span8 -->
+			<div class="span4"><%@include file="right_down.jsp"%></div>
+			<!-- .span4 -->
+		</div>
+		<!-- .row -->
+	</div>
+	<!-- begin footer -->
+	<footer>
+		<%@include file="footer.jsp"%>
+	</footer>
+	<!-- end footer -->
+</body>
+</html>

@@ -1,0 +1,22 @@
+package com.quantang.common;
+
+public final class Constant {
+	public final static Integer[] CAPTURE_TYPE = { 1, 2 };
+
+	public final static String[] CAPTURE_URL = {
+			"http://service.99qh.com/cftc2/GetData.ashx?code=CRUDE%20OIL,%20LIGHT%20SWEET%20-%20NEW%20YORK%20MERCANTILE%20EXCHANGE&date=",
+			"http://quote.fx168.com/uc/GetDetailInfo.aspx?op=GetInfo&code=CON0" };
+
+	public final static String[] cctype = { "1", "2", "3", "4" };
+	public final static String[] ccclass = { "1", "2", "3", "1", "1", "2", "3", "1", "2", "3" };
+
+	public final static String OPINION = "1";
+	public final static String MESSAGE = "2";
+	public final static String CHANNEL = "3";
+
+	// 文章类型(行业新闻/策略分析/内参报告)
+	public final static String[] ARTICLE_TYPE = { "0", "1", "2" };
+
+	// 1|2|3|4|5 翻页效果�?为当前页
+	public final static int PAGE_AROUND = 2;
+}

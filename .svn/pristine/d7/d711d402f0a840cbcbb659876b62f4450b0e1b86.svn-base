@@ -1,0 +1,48 @@
+package com.quantang.dao.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.quantang.common.Constant;
+import com.quantang.dao.ChartDataDao;
+
+@Repository
+public class ChartDataDaoImpl implements ChartDataDao {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	@Override
+	public List<Map<String, Object>> getCurrentData(String cclass) {
+		StringBuffer querySQL = new StringBuffer("");
+		if (!"".equals(cclass)) {
+			querySQL.append("select price,tradedate,changerate,buy,sell,maxprice,minprice,yestodayprice,openprice from noblemetal where class = '"
+					+ cclass + "' order by  tradedate desc LIMIT 1");
+		}
+
+		/*for (int i = 0; i < Constant.CAPTURE_CALSS.length; i++) {
+			if (i != 0) {
+				querySQL.append("union all");
+			}
+			querySQL.append("(select price,tradedate,changerate,buy,sell,maxprice,minprice,yestodayprice,openprice from noblemetal where class = '"
+					+ Constant.CAPTURE_CALSS[i] + "' order by  tradedate desc LIMIT 1)");
+		}*/
+
+		return jdbcTemplate.queryForList(querySQL.toString());
+	}
+
+	@Override
+	public List<Map<String, Object>> getDailyData(String cclass, Integer days) {
+		StringBuffer querySQL = new StringBuffer("");
+		querySQL.append("select date_format(tradedate,'%Y-%m-%d %T') date,price from noblemetal where 1=1");
+		querySQL.append(" and class = '").append(cclass).append("'");
+		querySQL.append(" and to_days(tradedate) = to_days(now()) - " + days);
+		querySQL.append(" order by date");
+		return jdbcTemplate.queryForList(querySQL.toString());
+	}
+
+}

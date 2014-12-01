@@ -1,0 +1,105 @@
+package com.quantang.dao.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.quantang.dao.ChartDataDao;
+
+@Repository
+public class ChartDataDaoImpl implements ChartDataDao {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	@Override
+	public List<Map<String, Object>> getNYMEXBHData(Integer i, String startdate, String enddate) {
+		return jdbcTemplate.queryForList(getSQL(i), new Object[] { startdate, enddate });
+	}
+
+	private String getSQL(Integer i) {
+		String backSQL = "";
+		// date:日期/dtl：多头量/ktl:空头�?bhl:变化�?jcc:�?���?tll:套利�?
+		switch (i) {
+		case 1:
+			backSQL = "select date_format(t.cc_date,'%Y-%m-%d') date,ifnull(t.bgtc_sgjqy_dt,0) dtl,ifnull(t.bgtc_sgjqy_kt,0) ktl,ifnull(t1.bgtc_sgjqy_jcc,0) jcc,ifnull(t1.bgtc_sgjqy_bhl,0) bhl"
+					+ " from nymex_cc t left join nymex_cc_bh t1 on t.cc_date = t1.cc_date"
+					+ " where 1=1 and t.cc_date > ? and t.cc_date < ? and t.cc_type = 1 and t.cc_class = 1 order by t.cc_date asc";
+			break;
+		case 2:
+			backSQL = "select date_format(t.cc_date, '%Y-%m-%d') date,ifnull(t.bgtc_hj_dt,0) dtl,ifnull(t.bgtc_hj_kt,0) ktl,"
+					+ "	ifnull(t.bgtc_hj_tl,0) tll,	ifnull(t1.bgtc_hj_jcc,0) jcc,ifnull(t1.bgtc_hj_bhl,0) bhl"
+					+ " from nymex_cc t left join nymex_cc_bh t1 on t.cc_date = t1.cc_date"
+					+ " where 1=1 and t.cc_date > ? and t.cc_date < ? and t.cc_type = 1 and t.cc_class = 1 order by t.cc_date asc";
+			break;
+		case 3:
+			backSQL = "select date_format(t.cc_date, '%Y-%m-%d') date,ifnull(t.bgtc_zcgljg_dt,0) dtl,ifnull(t.bgtc_zcgljg_kt,0) ktl,"
+					+ " ifnull(t.bgtc_zcgljg_tl,0) tll,ifnull(t1.bgtc_zcgljg_jcc,0) jcc,ifnull(t1.bgtc_zcgljg_bhl,0) bhl"
+					+ " from	nymex_cc t left join nymex_cc_bh t1 on t.cc_date = t1.cc_date"
+					+ " where 1=1 and t.cc_date > ? and t.cc_date < ? and t.cc_type = 1 and t.cc_class = 1 order by	t.cc_date asc";
+			break;
+		case 4:
+			backSQL = "select date_format(t.cc_date, '%Y-%m-%d') date,ifnull(t.bgtc_qt_dt,0) dtl,ifnull(t.bgtc_qt_kt,0) ktl,"
+					+ "	ifnull(t.bgtc_qt_tl,0) tll,	ifnull(t1.bgtc_qt_jcc,0) jcc,ifnull(t1.bgtc_qt_bhl,0) bhl"
+					+ " from nymex_cc t left join nymex_cc_bh t1 on t.cc_date = t1.cc_date"
+					+ " where 1=1 and t.cc_date > ? and t.cc_date < ? and t.cc_type = 1 and t.cc_class = 1 order by t.cc_date asc";
+			break;
+		case 5:
+			backSQL = "select date_format(t.cc_date,'%Y-%m-%d') date,ifnull(t.fbgtc_dt,0) dtl,ifnull(t.fbgtc_kt,0) ktl,ifnull(t1.fbgtc_jcc,0) jcc,ifnull(t1.fbgtc_bhl,0) bhl"
+					+ " from nymex_cc t left join nymex_cc_bh t1 on t.cc_date = t1.cc_date"
+					+ " where 1=1 and t.cc_date > ? and t.cc_date < ? and t.cc_type = 1 and t.cc_class = 1 order by t.cc_date asc";
+			break;
+		default:
+			break;
+		}
+		return backSQL;
+	}
+
+	@Override
+	public List<Map<String, Object>> getNYMEXCCData(String date) {
+		String getSQL = " select * from nymex_cc where cc_date= (select max(cc_date) from nymex_cc where cc_date<=?) order by cc_date,cc_type,cc_class";
+		return jdbcTemplate.queryForList(getSQL, new Object[] { date });
+	}
+
+	@Override
+	public List<Map<String, Object>> getNYMEXBZData(String date) {
+		String getSQL = "select * from nymex_bz where cc_date= (select max(cc_date) from nymex_cc where cc_date<=?) order by cc_date,cc_class";
+		return jdbcTemplate.queryForList(getSQL, new Object[] { date });
+	}
+
+	@Override
+	public List<Map<String, Object>> getWTIData() {
+		String getSQL = "select * from wti order by wti_time desc limit 1";
+		return jdbcTemplate.queryForList(getSQL);
+	}
+
+	@Override
+	public List<Map<String, Object>> getWTIDataTime(Integer i) {
+
+		return jdbcTemplate.queryForList(getSQL2(i));
+	}
+
+	private String getSQL2(Integer i) {
+		String getSQL = "";
+		switch (i) {
+		case 0:
+			getSQL = "select date_format(wti_time,'%Y-%m-%d %T') date,news_price price from wti where wti_time >= now() - interval 5 hour";
+			break;
+		case 1:
+			getSQL = "select date_format(wti_time,'%Y-%m-%d %T') date,news_price price from wti where wti_time >= now() - interval 5 hour";
+			break;
+		case 2:
+			getSQL = "select date_format(wti_time,'%Y-%m-%d %T') date,news_price price from wti where wti_time >= now() - interval 5 hour";
+			break;
+		case 3:
+			getSQL = "select date_format(wti_time,'%Y-%m-%d %T') date,news_price price from wti where wti_time >= now() - interval 5 hour";
+			break;
+		default:
+			break;
+		}
+		return getSQL;
+	}
+}

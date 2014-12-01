@@ -1,0 +1,6 @@
+package com.quantang.dao;
+
+public interface AccountOpenDao {
+	
+	String getAccountOpenCode();
+}

@@ -1,0 +1,200 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>预约开户 | 全唐贵金属</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="keywords" content="贵金属,全唐贵金属,钯金、铂金、镍投资,贵金属投资,投资理财"/>
+<meta content="我们强调“尊重客户，礼待客户”，让客户满意是服务的根本原则。全唐贵金属的每一位客户、每一份开户合约、每一个咨询电话，都将是规范、专业和客户利益至上原则的体现。 在对待客户的方式上，“客户就是上帝”，以客户为导向，不断满足客户的需求并持续超越客户的期望，是我们全唐人一致的追求。" name="description">
+
+
+<!-- CSS Styles  -->
+<link href="${base}/index/css/bootstrap.css" rel="stylesheet">
+<link href="${base}/index/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="${base}/index/css/font-awesome.min.css" rel="stylesheet">
+<link href="${base}/index/css/colors.css" rel="stylesheet">
+<link href="${base}/index/css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="${base}/index/js/jquery.min.js"></script>
+<!-- Javascript  -->
+<script src="${base}/index/js/jquery.min.js"></script>
+<script src="${base}/index/js/bootstrap.min.js"></script>
+<script src="${base}/index/js/jquery.placeholder.js"></script>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      	<script src="${base}/index/js/html5shiv.js"></script>
+    	<![endif]-->
+<script src="${base}/index/js/custom.js"></script>
+<script src="${base}/index/js/common.js"></script>
+
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$("#editerform").validate({
+			rules : {
+				name : {
+					required : true
+				},
+				phone : {
+					required : true,
+					number : true
+				},
+				email : {
+					email : true
+				}
+			},
+			errorClass : "help-inline",
+			errorElement : "span",
+			highlight : function(element, errorClass, validClass) {
+				$(element).parents('.control-group').addClass('error');
+			},
+			unhighlight : function(element, errorClass, validClass) {
+				$(element).parents('.control-group').removeClass('error');
+				$(element).parents('.control-group').addClass('success');
+			}
+		});
+		$("#editerform").submit(function() {
+			var options = {
+				dataType : 'json',
+				resetForm : false,
+				success : showSuccess,
+				error : showError,
+				timeout : 10000
+			}
+			$(this).ajaxSubmit(options);
+			return false;
+		});
+	});
+</script>
+</head>
+<body id="red">
+
+	<!-- begin header -->
+	<header>
+		<%@include file="header.jsp"%>
+	</header>
+	<!-- end header -->
+	<div class="container page-content">
+		<div class="row">
+			<div class="span8">
+				<div class="box-container">
+					<div class="padding30">
+
+						<div class="row-fluid">
+							<h2 class="page-title">预约开户</h2>
+							<div style="width: 60%; padding-left: 20%">
+								<form name="editerform" id="editerform" class="row-fluid"
+									action="${base}/savereser.htm" method="post"
+									novalidate="novalidate">
+									<span style="padding-right: 20px">您的姓名</span><input name="name"
+										id="name" size="22" tabindex="1" aria-required="true"
+										class="span5" type="text"><span for="name"
+										generated="true" class="help-inline" style="display: none;"></span>
+									<select class="span3 select clearfix" name="sex">
+										<option value="1">先生</option>
+										<option value="2">女士</option>
+									</select> <b style="color: red;">&nbsp;*&nbsp;</b><br> <span
+										style="padding-right: 20px">您的年龄</span><select
+										class="span8 select clearfix" name="age">
+										<option value="1">小于20岁</option>
+										<option value="2">20~35岁</option>
+										<option value="2">35~50岁</option>
+										<option value="2">60~65岁</option>
+										<option value="2">大于65岁</option>
+									</select> <br> <span style="padding-right: 20px">手机号码</span><input
+										name="phone" id="phone" size="22" tabindex="1"
+										aria-required="true" class="span8" type="text"><b
+										style="color: red;">&nbsp;*&nbsp;</b><span for="phone"
+										generated="true" style="display: none;"></span><br> <span
+										style="padding-right: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱</span><input
+										name="email" id="email" size="22" tabindex="2" class="span8"
+										aria-required="true" type="text">
+									<div class="clearfix"
+										style="padding-top: 30px; width: 150px; padding-left: 150px;">
+										<button class="btn pull-right span12 btn-realto btn-large"
+											type="submit">提交</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						<h2 class="page-title">开户流程</h2>
+						<p>1.投资者 个人：二代居民身份证 机构：营业执照、组织机构代码证等；</p>
+						<p>2.开户手续 客户协议书、交易数据托管投资者权责告知函、视频音像资料；</p>
+						<p>3.银行三方 交通银行 光大银行 农业银行 工商银行 建设银行 中信银行 华夏银行 招商银行办理签约、首次入金；</p>
+						<p>4.激活 满足天交所审核条件；</p>
+						<p>5.全唐客户 享受全唐优质服务 开始交易。</p>
+					</div>
+				</div>
+			</div>
+			<!-- .span8 -->
+			<div class="span4 widget">
+			<div class="info-box widget search-form" style="padding-right: 20px;padding-top: 30px">
+		<div style="padding-bottom: 30px;">
+			<i class="pull-left icons fa fa-download"
+				style="margin-left: 10px; margin-bottom: 15px;"></i>
+			<h3 style="padding-top: 7px; margin: 0">软件下载</h3>
+		</div>
+		<div class="clearfix" style="margin-bottom: 15px;">
+			<div></div>
+			<p>实时行情让您的投资交易得到更加可靠的保障，让您准确把握市场投资机会…</p>
+			<a href="">交易客户端（版本号：V2.6.130306.1）</a> <br> <a href="">行情分析系统（版本号：V96.6.047）</a>
+			<br> <a href="">微软Net Framewokrs2.0（V2.0）</a>
+		</div>
+	</div>
+	<!-- .clearfix -->
+	<div class="info-box widget search-form" style="padding-right: 20px;padding-top: 30px">
+		<div style="padding-bottom: 30px;">
+			<i class="pull-left icons fa fa-comment"
+				style="margin-left: 10px; margin-bottom: 15px;"></i>
+			<h3 style="padding-top: 7px; margin: 0">我们的服务</h3>
+		</div>
+		<div class="clearfix" style="margin-bottom: 15px;">
+			<div class="">
+				<p>全唐贵金属始终坚持“以客户为核心，为客户创财富”的发展战略，全心全意为客户服务，为投资者提供专业、公平、公开的服务平台及安全、便捷、优越的交易通道。</p>
+			</div>
+		</div>
+		<!-- .clearfix -->
+	</div>
+				<!-- .search-form -->
+			</div>
+			<!-- .span4 -->
+		</div>
+		<!-- .row -->
+	</div>
+	<!-- .container -->
+	<div class="container">
+		<div class="row">
+			<div class="span12 box-container">
+				<div class="row adv-message clearfix">
+					<div class="pull-left span7">
+						<p class="upper-line serif italic" style="padding-top: 10px;">实时行情让您的投资交易得到更加可靠的保障，让您准确把握市场投资机会…</p>
+					</div>
+					<!-- .pull-left -->
+					<a class="pull-right btn btn-large btn-realto span3" href="#"
+						title="Buy It Now">交易端下载</a>
+				</div>
+				<div class="row adv-message clearfix" style="display: none;">
+					<div class="pull-left span7">
+						<p class="upper-line serif italic" style="padding-top: 10px;">最全面的交易资讯，最及时的行业脉搏，一键下载客服端，全球市场随身看…</p>
+					</div>
+					<!-- .pull-left -->
+					<a class="pull-right btn btn-large btn-realto span3" href="#"
+						title="Buy It Now">手机端下载</a>
+				</div>
+				<!-- .adv-message  -->
+			</div>
+		</div>
+	</div>
+
+	<!-- begin footer -->
+	<footer>
+		<%@include file="footer.jsp"%>
+	</footer>
+
+	<!-- end footer -->
+</body>
+</html>

@@ -1,0 +1,211 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<div class="search-form widget">
+		<p>快速开户</p>
+		<form name="editerform" id="editerform" class="row-fluid"
+			action="${base}/savereser.htm" method="post" novalidate="novalidate">
+			<span style="padding-right: 20px">您的姓名</span><input name="name"
+				id="name" size="22" tabindex="1" aria-required="true" class="span5"
+				type="text"><span for="name" generated="true"
+				class="help-inline" style="display: none;"></span> <select
+				class="span3 select clearfix" name="status">
+				<option value="1">先生</option>
+				<option value="2">女士</option>
+			</select> <b style="color: red;">&nbsp;*&nbsp;</b><br> <span
+				style="padding-right: 20px">手机号码</span><input name="phone"
+				id="phone" size="22" tabindex="1" aria-required="true" class="span8"
+				type="text"><b style="color: red;">&nbsp;*&nbsp;</b><span
+				for="phone" generated="true" style="display: none;"></span><br>
+			<span style="padding-right: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱</span><input
+				name="email" id="email" size="22" tabindex="2" class="span8"
+				aria-required="true" type="text">
+			<div class="clearfix" style="padding-top: 30px;">
+				<button class="btn pull-right span12 btn-realto-form btn-large"
+					type="submit">提交</button>
+			</div>
+		</form>
+	</div>
+	<!-- .search-form -->
+	<div class="box-container widget">
+		<div class="padding30">
+			<h3 class="widget-title">Categories</h3>
+			<ul>
+				<li><i class="icon-caret-right"></i> <a href="#" title="title">Real
+						Estate</a></li>
+				<li><i class="icon-caret-right"></i> <a href="#" title="title">Investment</a></li>
+				<li><i class="icon-caret-right"></i> <a href="#" title="title">Properties</a></li>
+				<li><i class="icon-caret-right"></i> <a href="#" title="title">News</a></li>
+				<li><i class="icon-caret-right"></i> <a href="#" title="title">Marketing</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="box-container widget">
+		<div class="tabbable">
+
+			<!-- Only required for left/right tabs -->
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tab1" data-toggle="tab">Archives</a></li>
+				<li><a href="#tab2" data-toggle="tab">Comments</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="tab1">
+					<ul>
+						<li><i class="icon-caret-right"></i> <a href="#"
+							title="title">Lorem ipsum dolor sit amet</a></li>
+						<li><i class="icon-caret-right"></i> <a href="#"
+							title="title">Duis suscipit venenatis</a></li>
+						<li><i class="icon-caret-right"></i> <a href="#"
+							title="title">Etiam aliquet aliquam </a></li>
+						<li><i class="icon-caret-right"></i> <a href="#"
+							title="title">Cras venenatis pellentesque </a></li>
+						<li><i class="icon-caret-right"></i> <a href="#"
+							title="title">Vivamus vitae venenatis pellentesque</a></li>
+						<li><i class="icon-caret-right"></i> <a href="#"
+							title="title">In tempus venenatis </a></li>
+						<li><i class="icon-caret-right"></i> <a href="#"
+							title="title">Suspendisse vulputate quis</a></li>
+					</ul>
+				</div>
+				<div class="tab-pane" id="tab2">
+					<ul>
+						<li class="clearfix row-fluid comment">
+							<div class="pull-right span12">
+								<a href="#" title="title">Lorem ipsum dolor sit amet</a>
+								<p>Abore et dolore magna aliqua adipisicing elit seddo.</p>
+							</div>
+						</li>
+						<li class="clearfix row-fluid comment">
+							<div class="pull-right span12">
+								<a href="#" title="title">Duis suscipit venenatis</a>
+								<p>Abore et dolore magna aliqua adipisicing elit seddo.</p>
+							</div>
+						</li>
+						<li class="clearfix row-fluid comment">
+							<div class="pull-right span12">
+								<a href="#" title="title">Etiam aliquet aliquam</a>
+								<p>Abore et dolore magna aliqua adipisicing elit seddo.</p>
+							</div>
+						</li>
+						<li class="clearfix row-fluid comment">
+							<div class="pull-right span12">
+								<a href="#" title="title">Cras venenatis pellentesque</a>
+								<p>Abore et dolore magna aliqua adipisicing elit seddo.</p>
+							</div>
+						</li>
+						<li class="clearfix row-fluid comment">
+							<div class="pull-right span12">
+								<a href="#" title="title">In tempus venenatis</a>
+								<p>Abore et dolore magna aliqua adipisicing elit seddo.</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="info-box widget">
+		<h3 class="info-head">Designed for your business</h3>
+		<div class="row clearfix">
+			<div class="pull-left icons hidden-phone">
+				<i class="icon-briefcase"></i>
+			</div>
+			<div class="span3">
+				<p>Lorem ipsum dolor sit amet consectetur incididunt ut labore
+					et dolore magna aliqua adipisicing elit seddo eiusmod tempor.</p>
+				<a class="serif italic" href="#" title="Continue">Continue »</a>
+			</div>
+		</div>
+		<!-- .clearfix -->
+	</div>
+	<!-- .info-box -->
+	<div class="info-box widget">
+		<h3 class="info-head">Ample Customizations</h3>
+		<div class="row clearfix">
+			<div class="pull-left icons hidden-phone">
+				<i class="icon-cogs"></i>
+			</div>
+			<div class="span3">
+				<p>Lorem ipsum dolor sit amet consectetur incididunt ut labore
+					et dolore magna aliqua adipisicing elit seddo eiusmod tempor.</p>
+				<a class="serif italic" href="#" title="Continue">Continue »</a>
+			</div>
+		</div>
+		<!-- .clearfix -->
+	</div>
+	<!-- .info-box -->
+	<div class="info-box widget">
+		<h3 class="info-head">Fully Responsive</h3>
+		<div class="row clearfix">
+			<div class="pull-left icons hidden-phone">
+				<i class="icon-move"></i>
+			</div>
+			<div class="span3">
+				<p>Lorem ipsum dolor sit amet consectetur incididunt ut labore
+					et dolore magna aliqua adipisicing elit seddo eiusmod tempor.</p>
+				<a class="serif italic" href="#" title="Continue">Continue »</a>
+			</div>
+		</div>
+		<!-- .clearfix -->
+	</div>
+	<!-- .info-box -->
+	<div class="info-box widget">
+		<h3 class="info-head">Bootstrap Compatible</h3>
+		<div class="row clearfix">
+			<div class="pull-left icons hidden-phone">
+				<i class="icon-thumbs-up"></i>
+			</div>
+			<div class="span3">
+				<p>Lorem ipsum dolor sit amet consectetur incididunt ut labore
+					et dolore magna aliqua adipisicing elit seddo eiusmod tempor.</p>
+				<a class="serif italic" href="#" title="Continue">Continue »</a>
+			</div>
+		</div>
+		<!-- .clearfix -->
+	</div>
+	<!-- .info-box -->
+	<div class="home-blog-articles widget">
+		<h2 class="secion-title">Articles from the Blog</h2>
+		<ul>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Lorem
+					ipsum dolor sit amet, consectetur adipiscing</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Duis
+					suscipit venenatis pellentesque tempor libero</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Etiam
+					aliquet aliquam metus in tristique</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Cras
+					venenatis pellentesque venenatis pellentesque</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Vivamus
+					vitae venenatis pellentesque nunc sed nisl</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">In
+					tempus venenatis pellentesquetempor</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Suspendisse
+					vulputate venenatis pellentesque quis</a></li>
+		</ul>
+	</div>
+	<div class="home-blog-articles widget">
+		<h2 class="secion-title">Most commented articles</h2>
+		<ul>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Lorem
+					ipsum dolor sit amet, consectetur adipiscing</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Duis
+					suscipit venenatis pellentesque tempor libero</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Etiam
+					aliquet aliquam metus in tristique</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Cras
+					venenatis pellentesque venenatis pellentesque</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Vivamus
+					vitae venenatis pellentesque nunc sed nisl</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">In
+					tempus venenatis pellentesquetempor</a></li>
+			<li><i class="icon-caret-right"></i> <a title="title" href="#">Suspendisse
+					vulputate venenatis pellentesque quis</a></li>
+		</ul>
+	</div>
+</body>
+</html>

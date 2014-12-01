@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Homepage | Realto</title>
+<meta content="Realto" name="description">
+<meta content="favethemes" name="author">
+
+<!-- CSS Styles  -->
+<link href="../index/css/bootstrap.min.css" rel="stylesheet">
+<link href="../index/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="../index/css/font-awesome.min.css" rel="stylesheet">
+<link href="../index/css/colors.css" rel="stylesheet">
+<link href="../index/css/style.css" rel="stylesheet">
+
+<!-- Javascript  -->
+<script src="../index/js/jquery.min.js"></script>
+<script src="../index/js/bootstrap.min.js"></script>
+<script src="../index/js/jquery.placeholder.js"></script>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      	<script src="../index/js/html5shiv.js"></script>
+    	<![endif]-->
+ <script src="../index/js/custom.js"></script>
+<script src="../index/js/common.js"></script>
+
+</head>
+<body id="red">
+
+	<!-- begin header -->
+	<header>
+		<div class="navbar navbar-inverse navbar-static-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button class="btn btn-navbar" data-target=".nav-collapse"
+					data-toggle="collapse" type="button">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.htm"><i
+								class="fa fa-home"></i></a></li>
+						<li><a href="../aboutus.htm">关于我们 </a></li>
+						<!-- <li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="product.htm" title="Agents">产品介绍
+							<i class="fa fa-caret-down"></i>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="agents.html" title="All Agents">产品概况</a></li>
+								<li><a href="agent-profile.html" title="Agent Profile">产品特点</a></li>
+								<li><a href="agents.html" title="All Agents">产品细则</a></li>
+								<li><a href="agent-profile.html" title="Agent Profile">盈亏计算</a></li>
+								<li><a href="agent-profile.html" title="Agent Profile">权益保障</a></li>
+							</ul>
+							</li> -->
+						<li><a href="product.htm">产品介绍</a></li>	
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">行情数据<i
+								class="fa fa-caret-down"></i></a>
+							<ul class="dropdown-menu">
+								<!-- <li><a href="typography.html" title="Typography">产品报价</a></li> -->
+								<li><a href="../position.htm" title="Tabs and Toggle">持仓数据</a></li>
+
+							</ul></li>
+						<li><a href="../industry.htm" title="Financing">行业资讯</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">全唐研究<i
+								class="fa fa-caret-down"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="../dailyreview.htm" title="Typography">每日评论</a></li>
+								<li><a href="../analysis.htm" title="Tabs and Toggle">分析研究</a></li>
+
+							</ul></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">服务中心 <i
+								class="fa fa-caret-down"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="../online.htm" title="Sidebar Page">在线咨询</a></li>
+								<li><a href="../reservation.htm" title="Homepage 3">预约开户</a></li>
+								<li><a href="../rjxz.htm" title="Sidebar Page">软件下载</a></li>
+								<li><a href="../question.htm" title="Homepage 3">常见问题</a></li>
+							</ul></li>
+						<li><a href="../contact.htm" title="Contact us">联系我们</a></li>
+						<!-- <li><a href="#" title="Contact us">优惠活动</a></li> -->
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+	<div id="logo-container">
+		<div class="container">
+			<div class="row">
+				<div class="span8">
+					<img alt="../index/images/logo-1.png"
+						src="../index/images/logo-1.png">
+				</div>
+				 <div class="span4" style="padding-top: 15px">
+					<div class="phone-number pull-right">
+						<i class="fa fa-phone" ></i> 联系我们: <strong>400 6940669</strong>
+					</div>
+				</div> 
+			</div>
+		</div>
+	</div>
+	</header>
+ 
+        <!-- end header -->
+        <div class="container page-content blog">
+            <div class="row">
+                <div class="span8">
+                    <div class="row">
+                        <div class="span8 box-container post">
+                            <div class="padding30">
+                                
+                                <h2 align="center">${article.title}</h2>
+                                <div class="clearfix meta">
+                                    <p class="serif italic pull-left">日期:
+                                        <a>${article.timing}</a></p>
+                                         <p class="serif italic pull-right">作者:
+                                        <a>${article.author}</a></p>
+                                </div>
+                                <p>${article.content}
+                                </p>
+                            </div>
+                        </div>
+                        <!-- .post -->
+                    </div>
+                    <!-- .row -->
+                </div>
+                <!-- .span8 -->
+                <div class="span4">
+                    <div class="info-box widget search-form" style="padding-right: 20px;">
+		<h3 class="info-head">预约开户</h3>
+		<div class="row clearfix ">
+			<div class="pull-left icons hidden-phone" style="padding-right: 20px;padding-bottom: 80px;">
+				<i class="fa fa-table"></i>
+			</div>
+			<div class="">
+				<form name="editerform" id="editerform" class="row-fluid"
+					action="../savereser.htm" method="post"
+					novalidate="novalidate">
+					<span style="padding-right: 20px">您的姓名</span><input name="name"
+						id="name" size="22" tabindex="1" aria-required="true"
+						style="width: 78px;"  type="text"><span for="name"
+						generated="true" class="help-inline" style="display: none;"></span>
+					<select style="width: 70px"  name="status">
+						<option value="1">先生</option>
+						<option value="2">女士</option>
+					</select> <b style="color: red;">&nbsp;*&nbsp;</b><br> <span
+						style="padding-right: 20px">您的年龄</span><select
+						class="span6 select clearfix" name="age">
+						<option value="1">小于20岁</option>
+						<option value="2">20~35岁</option>
+						<option value="2">35~50岁</option>
+						<option value="2">60~65岁</option>
+						<option value="2">大于65岁</option>
+					</select> <br><span style="padding-right: 20px">手机号码</span><input name="phone"
+						id="phone" size="22" tabindex="1" aria-required="true"
+						class="span6" type="text"><b style="color: red;">&nbsp;*&nbsp;</b><span
+						for="phone" generated="true" style="display: none;"></span><br>
+					<span style="padding-right: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱</span><input
+						name="email" id="email" size="22" tabindex="2" class="span6"
+						aria-required="true" type="text">
+					<div class="clearfix">
+						<button class="btn pull-right span8 btn-realto-form btn-large"
+							type="submit">提交</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="info-box widget search-form">
+		<h3 class="info-head">软件下载</h3>
+		<div class="row clearfix">
+			<div class="pull-left icons hidden-phone" style="padding-right: 20px;padding-bottom: 50px;">
+				<i class="fa fa-download"></i>
+			</div>
+			<div>
+				<p>实时行情让您的投资交易得到更加可靠的保障，让您准确把握市场投资机会…</p>
+				<a href="">交易客户端（版本号：V2.6.130306.1）</a>
+				 <br> <a href="">行情分析系统（版本号：V96.6.047）</a>
+				  <br> <a href="">微软Net Framewokrs2.0（V2.0）</a>
+			</div>
+		</div>
+		<!-- .clearfix -->
+	</div>
+	<div class="info-box widget search-form">
+		<h3 class="info-head">我们的服务</h3>
+		<div class="row clearfix">
+			<div class="pull-left icons hidden-phone" style="padding-right: 20px;padding-bottom: 50px;">
+				<i class="fa fa-comment"></i>
+			</div>
+			<div class="">
+				<p>全唐贵金属始终坚持“以客户为核心，为客户创财富”的发展战略，全心全意为客户服务，为投资者提供专业、公平、公开的服务平台及安全、便捷、优越的交易通道。</p>
+			</div>
+		</div>
+		<!-- .clearfix -->
+	</div>
+                    </div>
+                    <!-- .search-form -->
+                </div>
+                <!-- .span4 -->
+            <!-- .row -->
+        </div>
+        <!-- .container -->
+        <div class="container">
+            <div class="row">
+			<div class="span12 box-container">
+				<div class="row adv-message clearfix">
+					<div class="pull-left span7">
+						<p class="upper-line serif italic" style="padding-top: 10px;">实时行情让您的投资交易得到更加可靠的保障，让您准确把握市场投资机会…</p>
+					</div>
+					<!-- .pull-left -->
+					<a class="pull-right btn btn-large btn-realto span3" href="#"
+						title="Buy It Now">交易端下载</a>
+				</div>
+				<div class="row adv-message clearfix" style="display: none;">
+					<div class="pull-left span7">
+						<p class="upper-line serif italic" style="padding-top: 10px;">最全面的交易资讯，最及时的行业脉搏，一键下载客服端，全球市场随身看…</p>
+					</div>
+					<!-- .pull-left -->
+					<a class="pull-right btn btn-large btn-realto span3" href="#"
+						title="Buy It Now">手机端下载</a>
+				</div>
+				<!-- .adv-message  -->
+			</div>
+		</div>
+        </div>
+         
+        <!-- begin footer -->
+        <footer>
+            <div class="container">
+		<div class="row">
+			<div class="span3">
+				<div class="footer-widget">
+					<h2 class="brand widget-title">全唐贵金属</h2>
+					<br>
+					<p class="footer-tag-line">
+						<!-- Your Company Tag Line -->
+					</p>
+					<p>全唐贵金属始终坚持“以客户为核心，为客户创财富”的发展战略，全心全意为客户服务，为投资者提供专业、公平、公开的服务平台及安全、便捷、优越的交易通道。
+					</p>
+				</div>
+				<!-- .footer-company-info -->
+			</div>
+			<!-- .span3 -->
+			<div class="span3">
+				<div class="footer-widget">
+					<h3 class="widget-title">地址</h3>
+					<div class="clearfix">
+						<ul>
+							<li class="clearfix"><i class="fa fa-location-arrow pull-left"></i>
+								<p class="pull-left">
+									北京市东城区东二环朝阳门 <br /> 银河SOHO C座 30519. <br />(朝阳门地铁站G口)
+								</p></li>
+							<li class="clearfix"><i class="fa fa-phone pull-left"></i>
+								<p class="pull-left">********</p></li>
+							<li class="clearfix"><i class="fa fa-envelope-o pull-left"></i>
+								<p class="pull-left">
+									<a href="#">tanggold@foxmail.com</a>
+								</p></li>
+						</ul>
+					</div>
+					<!-- .clearfix -->
+				</div>
+				<!-- .footer-widget -->
+			</div>
+			<!-- .span3 -->
+			<div class="span3">
+				<div class="footer-widget">
+					<h3 class="widget-title">公司</h3>
+					<ul>
+						<li><i class="fa fa-caret-right"></i> <a title="Home" href="#">关于我们</a></li>
+						<li><i class="fa fa-caret-right"></i> <a title="About Us"
+							href="#">法律声明</a></li>
+						<li><i class="fa fa-caret-right"></i> <a title="Properties"
+							href="#">联系我们</a></li>
+						<li><i class="fa fa-caret-right"></i> <a title="Agents"
+							href="#">站点地图</a></li>
+					</ul>
+				</div>
+				<!-- .footer-widget -->
+			</div>
+			<!-- .span3 -->
+			<div class="span3">
+				<div class="footer-widget">
+					<h3 class="widget-title">友情链接</h3>
+					<ul>
+						<li><i class="fa fa-caret-right"></i> <a title="Home" href="#">誉高石化</a></li>
+						<li><i class="fa fa-caret-right"></i> <a title="About Us"
+							href="#">智投互联</a></li>
+						<li><i class="fa fa-caret-right"></i> <a title="Properties"
+							href="#">财经门户</a></li>
+						<li><i class="fa fa-caret-right"></i> <a title="Agents"
+							href="#">深圳前海</a></li>
+					</ul>
+					<!-- .flickr-widget -->
+				</div>
+				<!-- .footer-widget -->
+			</div>
+			<!-- .span3 -->
+		</div>
+	</div>
+        </footer>
+         
+        <!-- end footer -->
+    </body>
+</html>

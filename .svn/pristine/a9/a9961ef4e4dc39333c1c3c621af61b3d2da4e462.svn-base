@@ -1,0 +1,54 @@
+package com.quantang.dao.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.quantang.common.Constant;
+import com.quantang.dao.CaptureDao;
+
+@Repository
+public class CaptureDaoImpl implements CaptureDao {
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	@Override
+	public void saveNobleMetalData(String datas) {
+		// TODO Auto-generated method stub
+		if ("".equals(datas) || datas == null) {
+			return;
+		}
+		String data[] = datas.split(";");
+		for (int i = 0; i < data.length; i++) {
+			metalClass(data[i]);
+		}
+	}
+
+	private void metalClass(String data) {
+
+		String[] datainfo = data.split("\"")[1].split(",");
+		for (int i = 0; i < Constant.CAPTURE_CALSS.length; i++) {
+			if (data.contains(Constant.CAPTURE_CALSS[i])) {
+				saveData(Constant.CAPTURE_CALSS[i], datainfo);
+				break;
+			}
+		}
+	}
+
+	@SuppressWarnings("deprecation")
+	private void saveData(String cclass, String[] datainfo) {
+		StringBuffer querySQL = new StringBuffer("");
+		StringBuffer insertSQL = new StringBuffer("");
+		querySQL.append("select count(1) from noblemetal where class =? and tradedate = ?");
+		if (jdbcTemplate.queryForInt(querySQL.toString(), new Object[] { cclass, datainfo[12] + " " + datainfo[6] }) > 0) {
+			return;
+		}
+		insertSQL
+				.append(" insert into noblemetal (class,tradedate,changerate,price,buy,sell,maxprice,minprice,yestodayprice,openprice,amount,buyamount,sellamount)");
+		insertSQL.append(" values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		jdbcTemplate.update(insertSQL.toString(), new Object[] { cclass, datainfo[12] + " " + datainfo[6], datainfo[1],
+				datainfo[0], datainfo[2], datainfo[3], datainfo[4], datainfo[5], datainfo[7], datainfo[8], datainfo[9],
+				datainfo[10], datainfo[11] });
+	}
+
+}

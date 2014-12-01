@@ -1,0 +1,180 @@
+package com.quantang.dao.impl;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Repository;
+
+import com.quantang.common.Constant;
+import com.quantang.dao.CaptureDao;
+
+@Repository
+public class CaptureDaoImpl implements CaptureDao {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	private String saveSQL = "insert into nymex_cc values(";
+
+	private String saveSQL2 = "insert into nymex_bz values(";
+
+	private String saveSQL3 = "insert into wti values(";
+
+	private String saveSQL1 = ");";
+
+	private String existSQL = "select count(1) from nymex_cc where cc_date = ?";
+
+	private String existSQL2 = "select count(1) from wti where wti_time = ?";
+
+	private String jccSQL = "select cc_date,bgtc_sgjqy_dt-bgtc_sgjqy_kt jcc1,bgtc_hj_dt-bgtc_hj_kt jcc2,bgtc_zcgljg_dt-bgtc_zcgljg_kt jcc3,bgtc_qt_dt-bgtc_qt_kt jcc4,fbgtc_dt-fbgtc_kt jcc5 from nymex_cc where cc_date = ? and cc_type = 1 and cc_class = 1";
+
+	private String lastjccSQL = "select	ifnull(cc_date,''),ifnull(bgtc_sgjqy_jcc,0) jcc1,ifnull(bgtc_hj_jcc,0) jcc2,ifnull(bgtc_zcgljg_jcc,0) jcc3,ifnull(bgtc_qt_jcc,0) jcc4,ifnull(fbgtc_jcc,0) jcc5 from nymex_cc_bh where cc_date = ?";
+
+	private String saveSQL4 = "insert into nymex_cc_bh values(";
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public void saveCatureNYMEXData(String data) {
+		String[] datas = data.split("@");
+		String thisDate = datas[datas.length - 2];
+		String lastDate = datas[datas.length - 1];
+		System.out.println(">>>>NYMEX JOB Start");
+		if (jdbcTemplate.queryForInt(existSQL, new Object[] { thisDate }) > 0) {
+			return;
+		}
+		dataToSQLView(datas, thisDate);
+		dataToSQLView2(datas, thisDate);
+		dataProcess(thisDate, lastDate);
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public void saveCatureWTIData(String data) {
+		String[] datas = data.split(",");
+		String value = "";
+		String time = "";
+		String date = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime()).toString();
+		for (int i = 0; i < 10; i++) {
+			if (i == 0) {
+				value += datas[i] + "',";
+				time += datas[i];
+			} else {
+				value += datas[i] + ",";
+			}
+		}
+		System.out.println(">>>>WTI JOB Start");
+		String datetime = date + " " + time;
+		if (jdbcTemplate.queryForInt(existSQL2, new Object[] { datetime }) > 0) {
+			return;
+		}
+		String executeSQL = saveSQL3 + "'" + date + " " + value.substring(0, value.length() - 1) + saveSQL1;
+		jdbcTemplate.update(executeSQL.toString());
+	}
+
+	/**
+	 * @param datas
+	 * @param thisDate
+	 * @todo 持仓数据
+	 */
+	private void dataToSQLView(String[] datas, String thisDate) {
+		// 数据拆分�?0行数据截取位置）
+		int[] pos = { 0, 14, 28, 42, 56, 70, 84, 98, 110, 122, 134 };
+		String[] value = { "", "", "", "", "", "", "", "", "", "" };
+		for (int j = 1; j < pos.length; j++) {
+			for (int i = 0; i < datas.length; i++) {
+				if (i >= 0 && i < pos[j] && i >= pos[j - 1]) {
+					value[j - 1] += datas[i].replace(",", "");
+					value[j - 1] += ",";
+				}
+			}
+		}
+		String cctype;
+		String executeSQL;
+		for (int i = 0; i < value.length; i++) {
+			executeSQL = "";
+			cctype = "";
+			if (i <= 2) {
+				cctype = Constant.cctype[0];
+				value[i] = value[i].substring(0, value[i].length() - 1);
+			}
+			if (i == 3) {
+				cctype = Constant.cctype[1];
+				value[i] = value[i].substring(0, value[i].length() - 1);
+			}
+			if (i >= 4 & i <= 6) {
+				cctype = Constant.cctype[2];
+				value[i] = value[i].substring(0, value[i].length() - 1);
+			}
+			if (i > 6) {
+				cctype = Constant.cctype[3];
+				value[i] += "0,0";
+			}
+			value[i] = "'" + thisDate + "'," + cctype + "," + Constant.ccclass[i] + "," + value[i].toString();
+			executeSQL += saveSQL + value[i] + saveSQL1;
+			jdbcTemplate.update(executeSQL.toString());
+		}
+	}
+
+	/**
+	 * @param datas
+	 * @param thisDate
+	 * @todo 交易商持仓比�?
+	 */
+	private void dataToSQLView2(String[] datas, String thisDate) {
+		// 数据拆分
+		int[] pos = { 134, 142, 150, 158 };
+		String[] value = { "", "", "", };
+		for (int j = 1; j < pos.length; j++) {
+			for (int i = 0; i < datas.length; i++) {
+				if (i >= 0 && i < pos[j] && i >= pos[j - 1]) {
+					value[j - 1] += datas[i].replace(",", "");
+					value[j - 1] += ",";
+				}
+			}
+		}
+		String executeSQL;
+		for (int i = 0; i < 3; i++) {
+			executeSQL = "";
+			value[i] = "'" + thisDate + "'," + (i + 1) + ","
+					+ value[i].subSequence(0, value[i].length() - 1).toString();
+			executeSQL += saveSQL2 + value[i] + saveSQL1;
+			jdbcTemplate.update(executeSQL.toString());
+		}
+	}
+
+	/**
+	 * @param thisDate
+	 * @param lastDate
+	 * @todo �?��仓及变化量处�?
+	 */
+	private void dataProcess(String thisDate, String lastDate) {
+		SqlRowSet row = jdbcTemplate.queryForRowSet(jccSQL, new Object[] { thisDate });
+		SqlRowSet row1 = jdbcTemplate.queryForRowSet(lastjccSQL, new Object[] { lastDate });
+		Double[] thisjccd = { 0.0, 0.0, 0.0, 0.0, 0.0 };
+		Double[] lastjccd = { 0.0, 0.0, 0.0, 0.0, 0.0 };
+		if (row.next()) {
+			thisjccd[0] = row.getDouble(2);
+			thisjccd[1] = row.getDouble(3);
+			thisjccd[2] = row.getDouble(4);
+			thisjccd[3] = row.getDouble(5);
+			thisjccd[4] = row.getDouble(6);
+		}
+		if (row1.next()) {
+			lastjccd[0] = row1.getDouble(2);
+			lastjccd[1] = row1.getDouble(3);
+			lastjccd[2] = row1.getDouble(4);
+			lastjccd[3] = row1.getDouble(5);
+			lastjccd[4] = row1.getDouble(6);
+		}
+		String value = "'" + thisDate + "'," + thisjccd[0] + "," + (thisjccd[0] - lastjccd[0]) + "," + thisjccd[1]
+				+ "," + (thisjccd[1] - lastjccd[1]) + "," + thisjccd[2] + "," + (thisjccd[2] - lastjccd[2]) + ","
+				+ thisjccd[3] + "," + (thisjccd[3] - lastjccd[3]) + "," + thisjccd[4] + ","
+				+ (thisjccd[4] - lastjccd[4]);
+		String executeSQL = saveSQL4 + value + saveSQL1;
+		jdbcTemplate.update(executeSQL.toString());
+	}
+
+}

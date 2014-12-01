@@ -1,0 +1,27 @@
+package com.quantang.dao.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.quantang.dao.AccountOpenDao;
+
+@Repository
+public class AccountOpenDaoImpl implements AccountOpenDao {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	@Override
+	public String getAccountOpenCode() {
+		String sql = "select min(account_code) as account_code from accountopen where account_status=0";
+		return jdbcTemplate.queryForObject(sql, String.class);
+	}
+
+	@Override
+	public int updateAcccountOpenCode(String openCode) {
+		String sql = "update accountopen set account_status = '1' where account_code =?";
+		return jdbcTemplate.update(sql, new Object[] { openCode });
+	}
+
+}

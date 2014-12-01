@@ -1,0 +1,9 @@
+package com.quantang.service;
+
+
+public interface CaptureService {
+	void saveCatureNYMEXData(String data);
+
+	void saveCatureWTIData(String data);
+
+}
